@@ -128,21 +128,21 @@ void LIS3DE::disableInterrupt2()
 
 uint8_t LIS3DE::readRegister(uint8_t reg)
 {
-    Wire.beginTransmission(_address);
-    Wire.write((uint8_t)reg);
-    Wire.endTransmission();
+    _wire.beginTransmission(_address);
+    _wire.write((uint8_t)reg);
+    _wire.endTransmission();
     
-    Wire.requestFrom(_address, 1);
+    _wire.requestFrom(_address, 1);
     
-    return Wire.read();
+    return _wire.read();
 }
 
 void LIS3DE::writeRegister(uint8_t reg, uint8_t value)
 {
-    Wire.beginTransmission((uint8_t)_address);
+    _wire.beginTransmission((uint8_t)_address);
     
-    Wire.write((uint8_t)reg);
-    Wire.write((uint8_t)value);
+    _wire.write((uint8_t)reg);
+    _wire.write((uint8_t)value);
     
-    Wire.endTransmission();
+    _wire.endTransmission();
 }
