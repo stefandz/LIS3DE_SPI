@@ -1,7 +1,7 @@
 #ifndef LIS3DE_H_
 #define LIS3DE_H_
 
-#include "Arduino.h"
+#include <Arduino.h>
 #include <Wire.h>
 
 #define LIS3DE_ADDRESS 0b0101000
