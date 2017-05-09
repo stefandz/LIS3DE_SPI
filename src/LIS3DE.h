@@ -53,7 +53,7 @@ class LIS3DE
             ACT_DUR = 0x3F
         };
         
-        enum Bits {
+        enum RegisterBits {
             // CTRL_REG1
             ODR0 = 4,
             LPen = 3,
