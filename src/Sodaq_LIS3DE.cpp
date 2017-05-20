@@ -1,4 +1,4 @@
-#include "LIS3DE.h"
+#include "Sodaq_LIS3DE.h"
 #include <math.h>
 
 #define _BV(bit) (1 << (bit))
