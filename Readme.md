@@ -6,7 +6,7 @@ Arduino library for the ST LIS3DE.
 
 Method|Description
 ------|------
-**LIS3DE(TwoWire& wire = Wire, uint8_t address = LIS3DE_ADDRESS)**|Constructor with optional Wire instance and address parameters.
+**Sodaq_LIS3DE(TwoWire& wire = Wire, uint8_t address = LIS3DE_ADDRESS)**|Constructor with optional Wire instance and address parameters.
 **getTemperatureDelta()**|Returns the temperature delta as read from the sensor (8-bit int).
 **enable(bool isLowPowerEnabled = false, ODR odr = NormalLowPower25Hz, Axes axes = XYZ, Scale scale = Scale2g, bool isTemperatureOn = true)**|Enables the sensor with the default values or the given data rate, axes and scale.
 **disable()**|Disables the sensor and puts it in the lowest power consumption state possible.
