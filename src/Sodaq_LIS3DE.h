@@ -158,6 +158,10 @@ class Sodaq_LIS3DE
         float getX() { return getGsFromScaledValue(readRegister(Sodaq_LIS3DE::OUT_X)); };
         float getY() { return getGsFromScaledValue(readRegister(Sodaq_LIS3DE::OUT_Y)); };
         float getZ() { return getGsFromScaledValue(readRegister(Sodaq_LIS3DE::OUT_Z)); };
+
+		bool dataAvailable();
+
+
 protected:
         TwoWire& _wire;
         uint8_t _address;
