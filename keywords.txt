@@ -1,0 +1,73 @@
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+LIS3DE_SPI	KEYWORD1
+Register	KEYWORD1
+RegisterBits	KEYWORD1
+ODR	KEYWORD1
+Axes	KEYWORD1
+Scale	KEYWORD1
+AxesEvents	KEYWORD1
+InterruptMode	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+getTemperatureDelta	KEYWORD2
+enable	KEYWORD2
+disable	KEYWORD2
+reboot	KEYWORD2
+enableInterrupt1	KEYWORD2
+disableInterrupt1	KEYWORD2
+enableInterrupt2	KEYWORD2
+disableInterrupt2	KEYWORD2
+getX	KEYWORD2
+getY	KEYWORD2
+getZ	KEYWORD2
+dataAvailable	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+PowerDown	LITERAL1
+NormalLowPower1Hz	LITERAL1
+NormalLowPower10Hz	LITERAL1
+NormalLowPower25Hz	LITERAL1
+NormalLowPower50Hz	LITERAL1
+NormalLowPower100Hz	LITERAL1
+NormalLowPower200Hz	LITERAL1
+NormalLowPower400Hz	LITERAL1
+LowPower1k6Hz	LITERAL1
+Normal1k344LowPower5k376Hz	LITERAL1
+
+NoAxis	LITERAL1
+X	LITERAL1
+Y	LITERAL1
+Z	LITERAL1
+XY	LITERAL1
+XZ	LITERAL1
+YZ	LITERAL1
+XYZ	LITERAL1
+
+Scale2g	LITERAL1
+Scale4g	LITERAL1
+Scale8g	LITERAL1
+Scale16g	LITERAL1
+
+ZHigh	LITERAL1
+ZLow	LITERAL1
+YHigh	LITERAL1
+YLow	LITERAL1
+XHigh	LITERAL1
+XLow	LITERAL1
+
+OrCombination	LITERAL1
+MovementRecognition	LITERAL1
+AndCombination	LITERAL1
+PositionRecognition	LITERAL1
+
+#######################################
+# Instances (KEYWORD3)
+#######################################

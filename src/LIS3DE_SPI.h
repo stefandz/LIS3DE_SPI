@@ -1,13 +1,10 @@
-#ifndef LIS3DE_H_
-#define LIS3DE_H_
+#ifndef LIS3DE_SPI_H_
+#define LIS3DE_SPI_H_
 
 #include <Arduino.h>
-#include <Wire.h>
+#include <SPI.h>
 
-#define LIS3DE_ADDRESS 0b0101000
-
-
-class Sodaq_LIS3DE
+class LIS3DE_SPI
 {
     public:
     
@@ -144,39 +141,41 @@ class Sodaq_LIS3DE
             PositionRecognition = 0b11000000
         };
 
-        Sodaq_LIS3DE(TwoWire& wire = Wire, uint8_t address = LIS3DE_ADDRESS);
+        LIS3DE_SPI( int CS_pin, uint32_t SPI_clock_Hz = 100000 );
         int8_t getTemperatureDelta();
-        void enable(bool isLowPowerEnabled = false, ODR odr = NormalLowPower25Hz, Axes axes = XYZ, Scale scale = Scale2g, bool isTemperatureOn = true);
+        void enable( bool isLowPowerEnabled = false, ODR odr = NormalLowPower25Hz, Axes axes = XYZ, Scale scale = Scale2g, bool isTemperatureOn = true );
         void disable();
         void reboot();
 
-        void enableInterrupt1(uint8_t axesEvents, float threshold, uint8_t duration, InterruptMode interruptMode = MovementRecognition);
+        void enableInterrupt1( uint8_t axesEvents, float threshold, uint8_t duration, InterruptMode interruptMode = MovementRecognition );
         void disableInterrupt1();
-        void enableInterrupt2(uint8_t axesEvents, float threshold, uint8_t duration, InterruptMode interruptMode = MovementRecognition);
+        void enableInterrupt2( uint8_t axesEvents, float threshold, uint8_t duration, InterruptMode interruptMode = MovementRecognition );
         void disableInterrupt2();
         
-        float getX() { return getGsFromScaledValue(readRegister(Sodaq_LIS3DE::OUT_X)); };
-        float getY() { return getGsFromScaledValue(readRegister(Sodaq_LIS3DE::OUT_Y)); };
-        float getZ() { return getGsFromScaledValue(readRegister(Sodaq_LIS3DE::OUT_Z)); };
+        float getX() { return getGsFromScaledValue( readRegister( LIS3DE_SPI::OUT_X )); };
+        float getY() { return getGsFromScaledValue( readRegister( LIS3DE_SPI::OUT_Y )); };
+        float getZ() { return getGsFromScaledValue( readRegister( LIS3DE_SPI::OUT_Z )); };
 
 		bool dataAvailable();
 
 
 protected:
-        TwoWire& _wire;
-        uint8_t _address;
-        Scale _scale;
+        Scale scale;
 
-        void setScale(Scale scale);
+        int CS_pin;
+        uint32_t SPI_clock_Hz;
+        uint8_t scratch;
 
-        uint8_t readRegister(Register reg);
-        void writeRegister(Register reg, uint8_t value);
-        void setRegisterBits(Register reg, uint8_t byteValue);
-        void unsetRegisterBits(Register reg, uint8_t byteValue);
+        void setScale( Scale scale );
 
-        float getGsFromScaledValue(int8_t value);
-        int8_t getScaledValueFromGs(float gValue);
-        int8_t getScaleMax(Scale scale);
+        uint8_t readRegister( Register reg );
+        void writeRegister( Register reg, uint8_t value );
+        void setRegisterBits( Register reg, uint8_t byteValue );
+        void unsetRegisterBits( Register reg, uint8_t byteValue );
+
+        float getGsFromScaledValue( int8_t value );
+        int8_t getScaledValueFromGs( float gValue );
+        int8_t getScaleMax( Scale scale );
 };
 
 #endif
